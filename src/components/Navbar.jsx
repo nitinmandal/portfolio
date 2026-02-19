@@ -48,7 +48,7 @@ const Navbar = () => {
                 {/* Right Side - Resume & Mobile Toggle */}
                 <div className="flex items-center gap-4">
                     <motion.a
-                        href="/Nitin Resume .docx"
+                        href="/Nitin's Resume .docx"
                         target="_blank"
                         rel="noopener noreferrer"
                         initial={{ opacity: 0, x: 20 }}
@@ -95,7 +95,7 @@ const Navbar = () => {
                             <div className="h-px w-10 bg-gray-800 my-2"></div>
 
                             <a
-                                href="/Nitin Resume .docx"
+                                href="/Nitin's Resume .docx"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow-lg hover:shadow-blue-500/25 transition-all"
