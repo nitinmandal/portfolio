@@ -57,7 +57,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="text-white py-20" id="contact">
+        <div className="text-white py-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
                     Get In Touch
