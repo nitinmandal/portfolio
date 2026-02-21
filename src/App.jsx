@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 
 import About from './components/About';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
       </section>
 
       <Footer />
-
+      <Chatbot />
     </div>
   );
 }
