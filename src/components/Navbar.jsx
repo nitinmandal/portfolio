@@ -52,7 +52,7 @@ const Navbar = () => {
 
                 <div className="flex items-center gap-4">
                     <a
-                        href="/Nitin's Resume .docx"
+                        href="/Nitin Resume1.docx"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold hover:bg-blue-500 hover:text-white transition-all shadow-[0_0_15px_rgba(59,130,246,0.15)]"
