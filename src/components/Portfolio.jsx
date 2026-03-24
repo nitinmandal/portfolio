@@ -1,22 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Brain, Activity, Calculator } from 'lucide-react';
+import { ExternalLink, Github, Brain, Activity, Calculator, Stethoscope } from 'lucide-react';
 
 const projects = [
+    {
+        title: 'MedExplain AI – Medical Analyzer',
+        description: 'Building with AI is more than just API calls — it’s about solving real-world friction. A full-stack health-tech application leveraging Google Gemini 1.5 Flash for multi-modal medical data extraction, structured JSON processing of complex lab reports, and longitudinal health tracking.',
+        tags: ['React', 'Node.js', 'MongoDB', 'Gemini 1.5 Flash', 'Recharts'],
+        image: '/medexplain.png',
+        liveLink: 'https://medexplain-ai.netlify.app/',
+        githubLink: 'https://github.com/nitinmandal', 
+        icon: <Stethoscope className="w-5 h-5 text-red-400" />
+    },
     {
         title: 'MindMate – AI Wellness Platform',
         description: 'An AI-powered mental wellness ecosystem providing early stress detection, emotion-aware chatbot support, and personalized mood journaling using NLP models.',
         tags: ['React', 'Tailwind', 'Node.js', 'Supabase', 'Hugging Face NLP'],
-        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        image: '/mindmate.png',
         liveLink: 'https://mindmate-wellness.vercel.app/',
-        githubLink: 'https://github.com/nitinmandal',
+        githubLink: 'https://github.com/nitinmandal/Mindmate',
         icon: <Brain className="w-5 h-5 text-purple-400" />
     },
     {
         title: 'BeachGuide – AI Smart Safety',
         description: 'AI-driven real-time beach recommendation system. Evaluates environmental parameters to compute Beach Suitability Index and provides hazard alerts.',
         tags: ['JavaScript', 'ML Concepts', 'System Architecture', 'Hackathon Top 20'],
-        image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        image: '/beachguide.png',
         liveLink: '#',
         githubLink: 'https://github.com/nitinmandal',
         icon: <Activity className="w-5 h-5 text-blue-400" />
@@ -25,9 +34,9 @@ const projects = [
         title: 'Smart Calorie Calculator',
         description: 'A responsive health tool that calculates daily calorie requirements based on user activity levels and biometrics. Features complex DOM manipulation logic.',
         tags: ['HTML', 'CSS', 'JavaScript', 'DOM Manipulation'],
-        image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        image: '/smartcalorie.png',
         liveLink: 'https://nitinmandal.github.io/smart-calorie-calculator/',
-        githubLink: 'https://github.com/nitinmandal/smart-calorie-calculator', // Assumed likely link structure
+        githubLink: 'https://github.com/nitinmandal/smart-calorie-calculator',
         icon: <Calculator className="w-5 h-5 text-green-400" />
     }
 ];
@@ -35,62 +44,73 @@ const projects = [
 const Portfolio = () => {
     return (
         <div className="text-white py-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500">
-                    Featured Projects
-                </span>
-            </h2>
+            <div className="text-center mb-24">
+                <h2 className="text-4xl md:text-6xl font-black mb-6">
+                    Featured <span className="text-gradient">Projects</span>
+                </h2>
+                <div className="w-20 h-1.5 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 {projects.map((project, index) => (
                     <motion.div
                         key={project.title}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
-                        className="rounded-xl overflow-hidden bg-gray-900/50 border border-gray-800 hover:border-blue-500/50 transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] group flex flex-col h-full"
+                        className="group flex flex-col rounded-3xl bg-[#0a0a0b] border border-gray-800/60 hover:border-blue-500/30 transition-all shadow-xl hover:shadow-2xl overflow-hidden"
                     >
-                        {/* Image Container */}
-                        <div className="relative h-48 overflow-hidden">
+                        {/* Top Image Section */}
+                        <div className="w-full h-48 sm:h-56 relative overflow-hidden border-b border-gray-800/60 bg-gray-900/50">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80" />
-                            <div className="absolute top-4 right-4 p-2 bg-gray-900/80 backdrop-blur-sm rounded-lg border border-gray-700">
-                                {project.icon}
-                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] to-transparent opacity-80" />
                         </div>
 
-                        <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+                        {/* Content Section */}
+                        <div className="p-8 flex flex-col flex-1 relative">
+                            {/* Floating Icon */}
+                            <div className="absolute -top-7 right-8 bg-[#121214] p-3.5 rounded-2xl border border-gray-800 shadow-xl z-20">
+                                {project.icon}
+                            </div>
+                            
+                            <h3 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight">
                                 {project.title}
                             </h3>
-                            <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                            
+                            <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-1">
                                 {project.description}
                             </p>
 
-                            {/* Tech Stack Tags */}
-                            <div className="flex flex-wrap gap-2 mb-6 mt-auto">
+                            <div className="flex flex-wrap gap-2 mb-8">
                                 {project.tags.map(tag => (
-                                    <span key={tag} className="px-2 py-1 text-[10px] uppercase tracking-wider font-semibold rounded bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                                    <span key={tag} className="px-3 py-1.5 rounded-lg bg-blue-500/5 border border-blue-500/10 text-[10px] uppercase font-semibold tracking-wider text-blue-300">
                                         {tag}
                                     </span>
                                 ))}
                             </div>
 
-                            {/* Links */}
-                            <div className="flex justify-between items-center pt-4 border-t border-gray-800 mt-auto">
-                                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
-                                    <Github className="w-4 h-4" /> Code
+                            <div className="flex gap-4">
+                                <a 
+                                    href={project.liveLink} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="flex-1 flex items-center justify-center gap-2 text-white font-semibold text-sm bg-blue-600/90 py-3 rounded-xl hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
+                                >
+                                    Launch <ExternalLink className="w-4 h-4" />
                                 </a>
-                                {project.liveLink !== '#' && (
-                                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm font-medium">
-                                        Live Demo <ExternalLink className="w-4 h-4" />
-                                    </a>
-                                )}
+                                <a 
+                                    href={project.githubLink} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="flex-1 flex items-center justify-center gap-2 text-gray-300 font-semibold text-sm bg-white/5 py-3 rounded-xl hover:bg-white/10 hover:text-white transition-colors border border-white/5"
+                                >
+                                    Code <Github className="w-4 h-4" />
+                                </a>
                             </div>
                         </div>
                     </motion.div>

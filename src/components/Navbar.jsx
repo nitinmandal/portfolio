@@ -24,98 +24,68 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-950/80 backdrop-blur-md border-b border-gray-800 py-2' : 'bg-transparent py-4'
-            }`}>
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-end relative">
-
-                {/* Desktop Menu - Centered */}
-                <div className="hidden md:flex gap-8 items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    {navLinks.map((item, index) => (
-                        <motion.a
+        <nav className="fixed top-6 left-0 w-full z-50 px-6 pointer-events-none">
+            <motion.div 
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className={`max-w-fit mx-auto glass rounded-full px-8 py-3 flex items-center gap-10 pointer-events-auto transition-all duration-500 ${scrolled ? 'scale-95 py-2.5 opacity-90 hover:scale-100 hover:opacity-100' : ''}`}
+            >
+                {/* Desktop Menu */}
+                <div className="hidden md:flex gap-8 items-center">
+                    {navLinks.map((item) => (
+                        <a
                             key={item.name}
                             href={item.href}
                             onClick={(e) => {
                                 e.preventDefault();
-                                const target = document.querySelector(item.href);
-                                if (target) {
-                                    target.scrollIntoView({ behavior: 'smooth' });
-                                }
+                                document.querySelector(item.href)?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide relative group"
+                            className="text-gray-400 hover:text-white transition-colors text-sm font-medium tracking-wide relative group"
                         >
                             {item.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-                        </motion.a>
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-blue-500/50 transition-all duration-300 group-hover:w-full"></span>
+                        </a>
                     ))}
                 </div>
 
-                {/* Right Side - Resume & Mobile Toggle */}
+                <div className="h-4 w-px bg-white/10 hidden md:block"></div>
+
                 <div className="flex items-center gap-4">
-                    <motion.a
+                    <a
                         href="/Nitin's Resume .docx"
                         target="_blank"
                         rel="noopener noreferrer"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 hover:bg-blue-500 hover:text-white transition-all text-sm font-medium hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                        className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold hover:bg-blue-500 hover:text-white transition-all shadow-[0_0_15px_rgba(59,130,246,0.15)]"
                     >
-                        Resume <ExternalLink className="w-4 h-4" />
-                    </motion.a>
+                        Resume <ExternalLink className="w-3 h-3" />
+                    </a>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-300 hover:text-white transition-colors focus:outline-none"
-                        >
-                            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                        </button>
-                    </div>
+                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-400">
+                        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                    </button>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Mobile Menu Dropdown */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-gray-950/95 backdrop-blur-xl border-b border-gray-800 overflow-hidden"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="absolute top-20 left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-sm glass rounded-2xl p-6 md:hidden pointer-events-auto"
                     >
-                        <div className="px-6 py-8 space-y-4 flex flex-col items-center">
+                        <div className="space-y-3 flex flex-col">
                             {navLinks.map((item) => (
                                 <a
                                     key={item.name}
                                     href={item.href}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        const target = document.querySelector(item.href);
-                                        if (target) {
-                                            target.scrollIntoView({ behavior: 'smooth' });
-                                        }
-                                        setIsOpen(false);
-                                    }}
-                                    className="block w-full text-center py-4 text-gray-300 hover:text-white text-xl font-medium transition-colors active:bg-gray-800 rounded-lg cursor-pointer"
+                                    onClick={() => setIsOpen(false)}
+                                    className="px-6 py-4 text-gray-300 hover:text-white text-lg font-medium glass-hover rounded-xl text-center"
                                 >
                                     {item.name}
                                 </a>
                             ))}
-
-                            <div className="h-px w-10 bg-gray-800 my-2"></div>
-
-                            <a
-                                href="/Nitin's Resume .docx"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow-lg hover:shadow-blue-500/25 transition-all"
-                            >
-                                View Resume <ExternalLink className="w-4 h-4" />
-                            </a>
                         </div>
                     </motion.div>
                 )}

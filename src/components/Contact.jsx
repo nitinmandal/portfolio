@@ -58,13 +58,14 @@ const Contact = () => {
 
     return (
         <div className="text-white py-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-                    Get In Touch
-                </span>
-            </h2>
+            <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-6xl font-black mb-6 italic">
+                    Get In <span className="text-gradient">Touch</span>
+                </h2>
+                <div className="w-16 h-1 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto items-center">
                 {/* Contact Info */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
@@ -72,93 +73,75 @@ const Contact = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
-                    <p className="text-gray-400 mb-8 leading-relaxed">
-                        I'm currently looking for internships and opportunities to apply my skills in real-world projects.
+                    <h3 className="text-3xl font-black mb-6">Let's Connect</h3>
+                    <p className="text-gray-400 mb-10 leading-relaxed text-lg font-light">
+                        I'm currently looking for <span className="text-white font-medium">internships</span> and opportunities to apply my skills in real-world projects.
                         Whether you have a question, a project idea, or just want to network, feel free to drop a message!
                     </p>
 
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-4 group">
-                            <div className="p-3 bg-gray-800/50 rounded-lg group-hover:bg-purple-500/20 transition-colors">
-                                <Mail className="w-6 h-6 text-purple-400" />
-                            </div>
-                            <div>
-                                <p className="text-sm text-gray-400">Email</p>
-                                <a href="mailto:nitinmandal172006@gmail.com" aria-label="Email Nitin" className="text-white font-medium hover:text-purple-400 transition-colors">
-                                    nitinmandal172006@gmail.com
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-4 group">
-                            <div className="p-3 bg-gray-800/50 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-                                <Github className="w-6 h-6 text-blue-400" />
-                            </div>
-                            <div>
-                                <p className="text-sm text-gray-400">Github</p>
-                                <a href="https://github.com/nitinmandal" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub Profile" className="text-white font-medium hover:text-blue-400 transition-colors">
-                                    github.com/nitinmandal
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-4 group">
-                            <div className="p-3 bg-gray-800/50 rounded-lg group-hover:bg-blue-700/20 transition-colors">
-                                <Linkedin className="w-6 h-6 text-blue-500" />
-                            </div>
-                            <div>
-                                <p className="text-sm text-gray-400">LinkedIn</p>
-                                <a href="https://www.linkedin.com/in/nitin-kumar-mandal" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn Profile" className="text-white font-medium hover:text-blue-500 transition-colors">
-                                    linkedin.com/in/nitin-kumar-mandal
-                                </a>
-                            </div>
-                        </div>
+                    <div className="space-y-4">
+                        {[
+                            { icon: <Mail />, label: 'Email', value: 'nitinmandal172006@gmail.com', href: 'mailto:nitinmandal172006@gmail.com' },
+                            { icon: <Github />, label: 'Github', value: 'github.com/nitinmandal', href: 'https://github.com/nitinmandal' },
+                            { icon: <Linkedin />, label: 'LinkedIn', value: 'in/nitin-kumar-mandal', href: 'https://www.linkedin.com/in/nitin-kumar-mandal' }
+                        ].map((item, idx) => (
+                            <a key={idx} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-4 rounded-2xl glass glass-hover border-white/5 transition-all group">
+                                <div className="p-3 rounded-xl bg-white/5 text-gray-400 group-hover:text-blue-400 group-hover:bg-blue-500/10 transition-all">
+                                    {React.cloneElement(item.icon, { className: 'w-5 h-5' })}
+                                </div>
+                                <div>
+                                    <p className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">{item.label}</p>
+                                    <p className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{item.value}</p>
+                                </div>
+                            </a>
+                        ))}
                     </div>
                 </motion.div>
 
                 {/* Contact Form */}
                 <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="bg-gray-900/40 p-8 rounded-2xl border border-gray-800 backdrop-blur-sm shadow-xl"
+                    className="glass p-10 rounded-[2.5rem] border border-white/5 shadow-2xl relative"
                 >
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder="Your Name"
-                                className="w-full px-4 py-3 bg-gray-950 rounded-lg border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors text-white placeholder-gray-500"
-                                required
-                            />
+                    <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    placeholder="Your Name"
+                                    className="w-full px-5 py-4 bg-white/5 rounded-2xl border border-white/5 focus:border-blue-500/50 outline-none transition-all text-white placeholder-gray-600 focus:bg-white/[0.08]"
+                                    required
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="email@example.com"
+                                    className="w-full px-5 py-4 bg-white/5 rounded-2xl border border-white/5 focus:border-blue-500/50 outline-none transition-all text-white placeholder-gray-600 focus:bg-white/[0.08]"
+                                    required
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="your.email@example.com"
-                                className="w-full px-4 py-3 bg-gray-950 rounded-lg border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors text-white placeholder-gray-500"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                        <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-500 ml-1">Message</label>
                             <textarea
                                 name="message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                placeholder="Your message here..."
+                                placeholder="How can I help you?"
                                 rows="4"
-                                className="w-full px-4 py-3 bg-gray-950 rounded-lg border border-gray-700 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-colors text-white placeholder-gray-500 resize-none"
+                                className="w-full px-5 py-4 bg-white/5 rounded-2xl border border-white/5 focus:border-blue-500/50 outline-none transition-all text-white placeholder-gray-600 focus:bg-white/[0.08] resize-none"
                                 required
                             ></textarea>
                         </div>
@@ -166,28 +149,18 @@ const Contact = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className={`w-full py-3.5 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold transition-all flex items-center justify-center gap-2 group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-[0_0_20px_rgba(147,51,234,0.3)]'}`}
+                            className={`w-full py-4 rounded-2xl bg-blue-600 text-white font-black text-sm uppercase tracking-widest transition-all shadow-[0_10px_30px_rgba(37,99,235,0.3)] flex items-center justify-center gap-3 active:scale-95 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-500 hover:shadow-blue-500/40'}`}
                         >
                             {isSubmitting ? (
-                                <>
-                                    Sending... <Loader2 className="w-4 h-4 animate-spin" />
-                                </>
+                                <>Sending <Loader2 className="w-4 h-4 animate-spin" /></>
                             ) : (
-                                <>
-                                    Send Message <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </>
+                                <>Send Message <Send className="w-4 h-4" /></>
                             )}
                         </button>
 
-                        {/* Success/Error Message */}
                         {result === 'success' && (
-                            <p className="text-green-400 text-center text-sm font-medium mt-4">
-                                Message sent successfully! I'll get back to you soon.
-                            </p>
-                        )}
-                        {result === 'error' && (
-                            <p className="text-red-400 text-center text-sm font-medium mt-4">
-                                Something went wrong. Please try emailing me directly.
+                            <p className="text-green-400 text-center text-xs font-bold uppercase tracking-widest mt-4 animate-bounce">
+                                Message Received!
                             </p>
                         )}
                     </form>

@@ -3,29 +3,34 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 border-t border-gray-800 text-gray-400 py-12">
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-
+        <footer className="bg-transparent border-t border-white/5 text-gray-500 py-16">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
                 {/* Brand / Name */}
                 <div className="text-center md:text-left">
-                    <h3 className="text-2xl font-bold text-white mb-2">Nitin Kumar Mandal</h3>
-                    <p className="text-sm">
-                        Combining logic & creativity to build intelligent web solutions.
+                    <h3 className="text-xl font-black text-white mb-2 tracking-tight font-display">Nitin Kumar Mandal</h3>
+                    <p className="text-xs font-light max-w-xs">
+                        Building intelligent, full-stack ecosystems with specialized AI functionality.
                     </p>
                 </div>
 
                 {/* Social Links */}
-                <div className="flex justify-center gap-6">
-                    <a href="https://github.com/nitinmandal" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Github"><Github className="w-5 h-5" /></a>
-                    <a href="https://www.linkedin.com/in/nitin-kumar-mandal" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors" aria-label="LinkedIn"><Linkedin className="w-5 h-5" /></a>
-                    <a href="mailto:nitinmandal172006@gmail.com" className="hover:text-red-400 transition-colors" aria-label="Email"><Mail className="w-5 h-5" /></a>
+                <div className="flex items-center gap-5">
+                    {[
+                        { icon: <Github />, href: 'https://github.com/nitinmandal' },
+                        { icon: <Linkedin />, href: 'https://www.linkedin.com/in/nitin-kumar-mandal' },
+                        { icon: <Mail />, href: 'mailto:nitinmandal172006@gmail.com' }
+                    ].map((item, idx) => (
+                        <a key={idx} href={item.href} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full border border-white/5 glass glass-hover text-gray-500 hover:text-white transition-all">
+                            {React.cloneElement(item.icon, { className: 'w-4 h-4' })}
+                        </a>
+                    ))}
                 </div>
 
                 {/* Copyright */}
-                <div className="text-center md:text-right text-sm">
-                    <p>© {new Date().getFullYear()} Nitin Kumar Mandal. All rights reserved.</p>
+                <div className="text-center md:text-right">
+                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-600 mb-1 font-display">Portfolio v2.0</p>
+                    <p className="text-xs italic">© {new Date().getFullYear()} Nitin Kumar Mandal</p>
                 </div>
-
             </div>
         </footer>
     );
