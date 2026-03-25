@@ -19,21 +19,21 @@ function App() {
           <Hero />
         </section>
 
-        <section id="about" className="py-32 px-6 max-w-7xl mx-auto">
+        <section id="about" className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
           <About />
         </section>
 
-        <section id="portfolio" className="py-32 px-6 max-w-7xl mx-auto">
+        <section id="portfolio" className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
           <Portfolio />
         </section>
 
         <div className="bg-white/[0.02]">
-          <section id="skills" className="py-32 px-6 max-w-7xl mx-auto">
+          <section id="skills" className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
             <Skills />
           </section>
         </div>
 
-        <section id="contact" className="py-32 px-6 max-w-7xl mx-auto">
+        <section id="contact" className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
           <Contact />
         </section>
       </main>

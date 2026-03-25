@@ -24,11 +24,11 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed top-6 left-0 w-full z-50 px-6 pointer-events-none">
+        <nav className="fixed top-4 md:top-6 left-0 w-full z-50 px-4 md:px-6 pointer-events-none">
             <motion.div 
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className={`max-w-fit mx-auto glass rounded-full px-8 py-3 flex items-center gap-10 pointer-events-auto transition-all duration-500 ${scrolled ? 'scale-95 py-2.5 opacity-90 hover:scale-100 hover:opacity-100' : ''}`}
+                className={`max-w-fit mx-auto glass rounded-full px-4 md:px-8 py-2.5 md:py-3 flex items-center gap-4 md:gap-10 pointer-events-auto transition-all duration-500 ${scrolled ? 'scale-95 py-2 md:py-2.5 opacity-90 hover:scale-100 hover:opacity-100' : ''}`}
             >
                 {/* Desktop Menu */}
                 <div className="hidden md:flex gap-8 items-center">

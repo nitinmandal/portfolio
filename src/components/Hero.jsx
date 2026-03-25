@@ -25,19 +25,19 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-6xl md:text-8xl font-black tracking-tight mb-10 leading-[1.1]"
+            className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight mb-6 md:mb-10 leading-[1.1]"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40 block drop-shadow-sm">
             Nitin Kumar Mandal
           </span>
-          <span className="text-gradient block text-4xl md:text-6xl mt-4">Aspiring Full-Stack Developer</span>
+          <span className="text-gradient block text-2xl sm:text-4xl md:text-6xl mt-4">Aspiring Developer</span>
         </motion.h1>
 
         <motion.p 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-gray-400 max-w-2xl mx-auto mb-14 leading-relaxed text-lg md:text-xl font-light"
+            className="text-gray-400 max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed text-base md:text-xl font-light"
         >
            A Computer Science student exploring full-stack web development and learning to build <span className="text-white font-medium">functional, user-centric applications</span>.
         </motion.p>

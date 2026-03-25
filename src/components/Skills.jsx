@@ -49,7 +49,7 @@ const otherSkills = [
 const Skills = () => {
     return (
         <div className="text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center text-white">
+            <h2 className="text-3xl md:text-5xl font-bold mb-10 md:mb-16 text-center text-white">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400">
                     Skills & Experience
                 </span>
@@ -64,29 +64,29 @@ const Skills = () => {
                     viewport={{ once: true }}
                     className="col-span-1 md:col-span-6 lg:col-span-8 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 md:p-8 hover:border-blue-500/30 transition-all group"
                 >
-                    <div className="flex justify-between items-start mb-10">
+                    <div className="flex justify-between items-start mb-6 md:mb-10">
                         <div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Technical Proficiency</h3>
-                            <p className="text-sm text-gray-500">Core development stack and specialized expertise</p>
+                            <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Technical Proficiency</h3>
+                            <p className="text-xs md:text-sm text-gray-500">Core development stack and specialized expertise</p>
                         </div>
-                        <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400">
-                            <Code2 className="w-6 h-6" />
+                        <div className="p-2.5 md:p-3 rounded-xl bg-blue-500/10 text-blue-400">
+                            <Code2 className="w-5 h-5 md:w-6 md:h-6" />
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 md:gap-x-10 gap-y-6 md:gap-y-8">
                         {skills.map((skill, index) => (
-                            <div key={skill.name} className="space-y-3">
+                            <div key={skill.name} className="space-y-2 md:space-y-3">
                                 <div className="flex justify-between items-center">
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center gap-2.5 md:gap-3">
                                         <div className="p-1.5 rounded-md bg-gray-800 group-hover:bg-gray-700 transition-colors">
-                                            {skill.icon}
+                                            {React.cloneElement(skill.icon, { className: 'w-4 h-4 md:w-5 md:h-5' })}
                                         </div>
-                                        <span className="text-sm font-semibold text-gray-200">{skill.name}</span>
+                                        <span className="text-xs md:text-sm font-semibold text-gray-200">{skill.name}</span>
                                     </div>
-                                    <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded font-mono">{skill.level}%</span>
+                                    <span className="text-[10px] md:text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded font-mono">{skill.level}%</span>
                                 </div>
-                                <div className="w-full bg-gray-950/50 rounded-full h-1.5 overflow-hidden">
+                                <div className="w-full bg-gray-950/50 rounded-full h-1 md:h-1.5 overflow-hidden">
                                     <motion.div
                                         initial={{ width: 0 }}
                                         whileInView={{ width: `${skill.level}%` }}
