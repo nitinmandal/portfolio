@@ -59,6 +59,9 @@ const Contact = () => {
     return (
         <div className="text-white py-12 md:py-20">
             <div className="text-center mb-10 md:mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+                    Open to Frontend / Full-Stack / AI-focused internship roles — available to start immediately
+                </div>
                 <h2 className="text-4xl md:text-6xl font-black mb-4 md:mb-6 italic">
                     Get In <span className="text-gradient">Touch</span>
                 </h2>

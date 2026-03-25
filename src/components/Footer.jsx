@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="text-center md:text-left">
                     <h3 className="text-xl font-black text-white mb-2 tracking-tight font-display">Nitin Kumar Mandal</h3>
                     <p className="text-xs font-light max-w-xs">
-                        Building intelligent, full-stack ecosystems with specialized AI functionality.
+                        Building full-stack applications with AI-powered features and real-world usability.
                     </p>
                 </div>
 

@@ -52,7 +52,7 @@ const About = () => {
                     I am a Computer Science student at <span className="text-white font-medium">Indraprastha Engineering College</span>, currently exploring the world of full-stack development.
                 </p>
                 <p className="text-gray-400 text-base md:text-lg leading-relaxed font-light">
-                    I'm focused on learning how to build functional and reliable web applications. My journey involves diving into frontend and backend technologies, while also experimenting with how data and intelligent features can enhance user experiences. I enjoy the process of continuous learning and am always looking for ways to improve my coding skills and understand best practices.
+                    Integrating AI into real-world applications by working with LLM APIs and prompt engineering to solve meaningful problems.
                 </p>
             </motion.div>
 
@@ -66,8 +66,8 @@ const About = () => {
                 <div className="p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-blue-500/10 text-blue-400 w-fit mb-4">
                     <Code className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <h4 className="font-black text-lg md:text-xl mb-2">Frontend</h4>
-                <p className="text-xs md:text-sm text-gray-500 leading-relaxed">Modern UI with React, Vite & Tailwind for seamless interaction.</p>
+                <h4 className="font-black text-lg md:text-xl mb-2">Frontend & AI</h4>
+                <p className="text-xs md:text-sm text-gray-500 leading-relaxed">Integrating AI into React interfaces for seamless UX.</p>
             </motion.div>
 
             <motion.div 
@@ -79,8 +79,8 @@ const About = () => {
                 <div className="p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-purple-500/10 text-purple-400 w-fit mb-4">
                     <Brain className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <h4 className="font-black text-lg md:text-xl mb-2">AI Logic</h4>
-                <p className="text-xs md:text-sm text-gray-500 leading-relaxed">Specialized in LLM prompting and multi-modal data extraction.</p>
+                <h4 className="font-black text-lg md:text-xl mb-2">Smart Engineering</h4>
+                <p className="text-xs md:text-sm text-gray-500 leading-relaxed">Using LLM APIs and prompt engineering to extract value from data.</p>
             </motion.div>
         </div>
       </div>

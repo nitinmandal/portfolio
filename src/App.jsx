@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import About from './components/About';
+import WhyHireMe from './components/WhyHireMe';
 import Footer from './components/Footer';
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
             <Skills />
           </section>
         </div>
+
+        <section id="why-hire-me" className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+          <WhyHireMe />
+        </section>
 
         <section id="contact" className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
           <Contact />

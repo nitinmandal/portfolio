@@ -30,7 +30,7 @@ const Hero = () => {
           <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40 block drop-shadow-sm">
             Nitin Kumar Mandal
           </span>
-          <span className="text-gradient block text-2xl sm:text-4xl md:text-6xl mt-4">Aspiring Developer</span>
+          <span className="text-gradient block text-2xl sm:text-4xl md:text-6xl mt-4">Full-Stack Developer | AI Integration</span>
         </motion.h1>
 
         <motion.p 
@@ -39,7 +39,9 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-gray-400 max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed text-base md:text-xl font-light"
         >
-           A Computer Science student exploring full-stack web development and learning to build <span className="text-white font-medium">functional, user-centric applications</span>.
+           I build full-stack web applications with AI-powered features, focusing on real-world problems in health-tech and user experience.
+           <br />
+           <span className="text-blue-400 font-semibold mt-4 block">Actively seeking Frontend / Full-Stack / AI-focused internship opportunities</span>
         </motion.p>
 
         <motion.div 
@@ -49,10 +51,14 @@ const Hero = () => {
             className="flex flex-wrap justify-center gap-6 mb-20"
         >
           <a href="#portfolio" className="px-8 py-3.5 rounded-full bg-blue-600 text-white font-bold text-sm shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 transition-all">
-            See My Work
+            View Projects
           </a>
           
-          <div className="flex items-center gap-4 border border-white/10 p-1.5 rounded-full glass">
+          <a href="#contact" className="px-8 py-3.5 rounded-full border border-white/20 text-white font-bold text-sm hover:bg-white/5 transition-all">
+            Contact Me
+          </a>
+          
+          <div className="flex items-center gap-4 border border-white/10 p-1.5 rounded-full glass shrink-0">
             <a href="https://github.com/nitinmandal" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full hover:bg-white/10 transition-colors" aria-label="GitHub">
                 <Github className="w-5 h-5" />
             </a>

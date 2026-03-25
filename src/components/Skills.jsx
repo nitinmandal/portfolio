@@ -30,13 +30,21 @@ const experiences = [
 ];
 
 const skills = [
-    { name: 'JavaScript / ES6+', level: 90, icon: <Code2 className="w-5 h-5" />, color: 'blue' },
-    { name: 'React (Vite)', level: 85, icon: <Cpu className="w-5 h-5" />, color: 'cyan' },
-    { name: 'Node.js & Express', level: 80, icon: <Server className="w-5 h-5" />, color: 'green' },
-    { name: 'MongoDB (Mongoose)', level: 75, icon: <Database className="w-5 h-5" />, color: 'emerald' },
-    { name: 'Tailwind & Modern CSS', level: 85, icon: <Layout className="w-5 h-5" />, color: 'sky' },
-    { name: 'AI Prompt Engineering', level: 80, icon: <Sparkles className="w-5 h-5" />, color: 'purple' },
-    { name: 'Git & Agile Workflow', level: 75, icon: <GitBranch className="w-5 h-5" />, color: 'orange' },
+    { name: 'JavaScript / ES6+', level: 'Proficient', icon: <Code2 className="w-5 h-5" />, color: 'blue' },
+    { name: 'React (Vite)', level: 'Proficient', icon: <Cpu className="w-5 h-5" />, color: 'cyan' },
+    { name: 'Node.js & Express', level: 'Intermediate', icon: <Server className="w-5 h-5" />, color: 'green' },
+    { name: 'MongoDB (Mongoose)', level: 'Intermediate', icon: <Database className="w-5 h-5" />, color: 'emerald' },
+    { name: 'Tailwind & Modern CSS', level: 'Proficient', icon: <Layout className="w-5 h-5" />, color: 'sky' },
+    { name: 'AI Prompt Engineering', level: 'Proficient', icon: <Sparkles className="w-5 h-5" />, color: 'purple' },
+    { name: 'Git & Version Control', level: 'Intermediate', icon: <GitBranch className="w-5 h-5" />, color: 'orange' },
+];
+
+const currentlyExploring = [
+    'System design fundamentals for scalable applications',
+    'Advanced React patterns & performance optimization',
+    'Backend scalability and API design',
+    'Retrieval-Augmented Generation (RAG) systems',
+    'Building production-ready AI applications'
 ];
 
 const otherSkills = [
@@ -54,6 +62,29 @@ const Skills = () => {
                     Skills & Experience
                 </span>
             </h2>
+
+            {/* Currently Exploring Section */}
+            <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="mb-10 md:mb-16 max-w-4xl mx-auto"
+            >
+                <div className="bg-blue-500/5 border border-blue-500/20 rounded-[2rem] p-6 md:p-8 backdrop-blur-sm">
+                    <h3 className="text-sm font-black text-blue-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-3 justify-center">
+                        <Sparkles className="w-4 h-4 text-blue-400" />
+                        Currently Exploring
+                    </h3>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {currentlyExploring.map((item, idx) => (
+                            <span key={idx} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs md:text-sm text-gray-300 font-medium hover:border-blue-500/30 transition-all">
+                                {item}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-5 md:gap-7">
                 {/* 1. Main Tech Stack (Large Card) */}
@@ -84,12 +115,12 @@ const Skills = () => {
                                         </div>
                                         <span className="text-xs md:text-sm font-semibold text-gray-200">{skill.name}</span>
                                     </div>
-                                    <span className="text-[10px] md:text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded font-mono">{skill.level}%</span>
+                                    <span className="text-xs text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded font-mono uppercase tracking-wider">{skill.level}</span>
                                 </div>
-                                <div className="w-full bg-gray-950/50 rounded-full h-1 md:h-1.5 overflow-hidden">
+                                <div className="w-full bg-gray-950/50 rounded-full h-1.5 overflow-hidden">
                                     <motion.div
                                         initial={{ width: 0 }}
-                                        whileInView={{ width: `${skill.level}%` }}
+                                        whileInView={{ width: skill.level === 'Proficient' ? '85%' : skill.level === 'Intermediate' ? '70%' : '50%' }}
                                         transition={{ duration: 1.2, delay: 0.1, ease: [0.34, 1.56, 0.64, 1] }}
                                         viewport={{ once: true }}
                                         className="h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-500 shadow-[0_0_15px_rgba(37,99,235,0.4)]"
@@ -119,15 +150,15 @@ const Skills = () => {
                         <div className="text-xs space-y-2">
                             <div className="flex justify-between text-gray-500">
                                 <span>Gemini 1.5 Flash</span>
-                                <span className="text-purple-400">Expert</span>
+                                <span className="text-purple-400 font-mono uppercase tracking-wider">Proficient</span>
                             </div>
                             <div className="w-full bg-gray-950 h-1 rounded-full overflow-hidden">
-                                <div className="w-full h-full bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.4)]"></div>
+                                <div className="w-[85%] h-full bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.4)]"></div>
                             </div>
                         </div>
                         <div className="flex flex-wrap gap-2 pt-2">
                             {['JSON Extraction', 'Prompt Engineering', 'NLP Pipeline'].map(tag => (
-                                <span key={tag} className="text-[10px] bg-gray-800 text-gray-300 px-2 py-1 rounded border border-gray-700">
+                                <span key={tag} className="text-xs bg-gray-800 text-gray-300 px-2.5 py-1 rounded border border-gray-700">
                                     {tag}
                                 </span>
                             ))}
@@ -158,7 +189,7 @@ const Skills = () => {
                         ))}
                     </ul>
                     <div className="mt-8 pt-4 border-t border-gray-800">
-                        <p className="text-[10px] text-gray-500">Always iterating on new patterns</p>
+                        <p className="text-xs text-gray-500">Always iterating on new patterns</p>
                     </div>
                 </motion.div>
 
