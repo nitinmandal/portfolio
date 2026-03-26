@@ -8,7 +8,7 @@ const Hero = () => {
       {/* Background radial gradient spotlight */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15)_0,transparent_60%)] -z-10" />
 
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto my-32">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto my-16 md:my-32">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
