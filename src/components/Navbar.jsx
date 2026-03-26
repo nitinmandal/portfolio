@@ -15,6 +15,15 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isOpen]);
+
     const navLinks = [
         { name: 'Home', href: '#home' },
         { name: 'About', href: '#about' },
@@ -70,11 +79,13 @@ const Navbar = () => {
                 </div>
             </motion.div>
 
+            <AnimatePresence>
+                {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95, y: -10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                        className="fixed inset-0 z-[60] flex items-center justify-center p-4 md:hidden pointer-events-auto bg-black/60 backdrop-blur-md"
+                        className="fixed inset-0 z-[999] flex items-center justify-center p-4 md:hidden pointer-events-auto bg-black/60 backdrop-blur-md"
                         onClick={() => setIsOpen(false)}
                     >
                         <motion.div 
@@ -83,9 +94,9 @@ const Navbar = () => {
                         >
                             <button 
                                 onClick={() => setIsOpen(false)}
-                                className="absolute top-6 right-8 p-2 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white transition-colors"
+                                className="absolute top-6 right-8 p-2 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white transition-colors cursor-pointer"
                             >
-                                <X className="w-5 h-5" />
+                                <X className="w-5 h-5 pointer-events-none" />
                             </button>
 
                             <div className="flex flex-col gap-2 mt-4">
@@ -119,6 +130,8 @@ const Navbar = () => {
                             </a>
                         </motion.div>
                     </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 };
