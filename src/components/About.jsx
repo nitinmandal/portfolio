@@ -19,7 +19,7 @@ const About = () => {
                 <img
                 src="/nitin-profile.jpeg"
                 alt="Nitin Kumar Mandal"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60" />
                 
